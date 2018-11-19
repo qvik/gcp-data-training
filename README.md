@@ -229,16 +229,14 @@ or, alternatively,
 9. Create the topic and its subscription from command line
 ```
 gcloud pubsub topics create stream_data_ingestion
-gcloud pubsub subscriptions create \
---topic stream_data_ingestion process_stream_data
+gcloud pubsub subscriptions create --topic stream_data_ingestion process_stream_data
 ```
 
 10. Run `publisher.py`
 
 11. Open a new Cloud Shell tab and pull messages from the subscription to make sure data is flowing
 ```
-gcloud pubsub subscriptions pull --auto-ack \
-projects/$GOOGLE_CLOUD_PROJECT/subscriptions/process_stream_data
+gcloud pubsub subscriptions pull --auto-ack projects/$GOOGLE_CLOUD_PROJECT/subscriptions/process_stream_data
 ```
 
 12. Interrupt the Python process `publisher.py` with `CTRL-C`
@@ -298,11 +296,11 @@ python batch_pipeline.py --runner DirectRunner
 
 ### Cloud Composer
 
-1. Take a look at [Cloud Composer documentation](https://cloud.google.com/composer/docs/concepts/features)
+1. In Cloud Console, navigate to Cloud Composer
 
-2. In Cloud Console, navigate to Cloud Composer
+2. Create an environment named `data-transfer-environment` in `europe-west1` (this takes a while to finish)
 
-3. Create an environment named `data_transfer_environment` in `europe-west1`
+3. Take a look at [Cloud Composer documentation](https://cloud.google.com/composer/docs/concepts/features)
 
 4. Create a Cloud Storage bucket for data export
 ```
