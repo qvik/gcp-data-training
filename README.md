@@ -185,19 +185,19 @@ gcloud services enable composer.googleapis.com
 
 1. Open Cloud Shell (preferably in a new tab) and clone this repository
 ```
-git clone https://github.com/qvik/veikkaus-data-training.git
+git clone https://github.com/qvik/gcp-data-training.git
 ```
 
 If you want to use your local code editor instead of the Cloud Shell code editor, follow these steps (you will need to have installed Google Cloud SDK locally):
 
 2. Create a repository in Cloud Source Repositories
 ```
-gcloud source repos create veikkaus-data-training
+gcloud source repos create gcp-data-training
 ```
 
 3. In the repository folder, add remote
 ```
-git remote add google https://source.developers.google.com/p/$GOOGLE_CLOUD_PROJECT/r/veikkaus-data-training
+git remote add google https://source.developers.google.com/p/$GOOGLE_CLOUD_PROJECT/r/gcp-data-training
 ```
 
 4. Push
@@ -205,7 +205,7 @@ git remote add google https://source.developers.google.com/p/$GOOGLE_CLOUD_PROJE
 git push google master
 ```
 
-5. Clone the `veikkaus-data-training` repository to your laptop by following the instructions in Source Repositories
+5. Clone the `gcp-data-training` repository to your laptop by following the instructions in Source Repositories
 
 Back to Cloud Shell, everyone!
 
