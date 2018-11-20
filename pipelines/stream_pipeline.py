@@ -13,12 +13,13 @@ from apache_beam.options.pipeline_options import PipelineOptions, SetupOptions
 from apache_beam.io import WriteToBigQuery, ReadFromPubSub
 from apache_beam.transforms import WindowInto
 from apache_beam.transforms.window import FixedWindows
+import os
 import argparse
 import logging
 import json
 from datetime import datetime
 
-project_id =  # insert your project id (string) here
+project_id = os.environ['GOOGLE_CLOUD_PROJECT']
 
 
 def run(argv=None):

@@ -18,12 +18,13 @@ from google.cloud.proto.datastore.v1 import entity_pb2
 from google.cloud.proto.datastore.v1 import query_pb2
 from googledatastore import helper as datastore_helper
 
+import os
 from datetime import datetime
 import argparse
 import logging
 import uuid
 
-project_id =  # insert your project id (string) here
+project_id = os.environ['GOOGLE_CLOUD_PROJECT']
 
 
 def run(argv=None):
@@ -60,7 +61,7 @@ def run(argv=None):
                                                          query=query,
                                                          use_standard_sql=True))
            | 'Create entity' >> beam.Map(EntityWrapper(kind).make_entity)
-           | 'Write to Datastore' >> WriteToDatastore(project_id)))
+           | 'Write to Datastore' >> WriteToDatastore(project_id))
 
 
 class EntityWrapper(object):

@@ -17,21 +17,21 @@ from __future__ import absolute_import
 
 import datetime
 import logging
+import os
 
 from airflow import models
 
-from airflow.operators.bash_operator import BashOperator
 from airflow.contrib.operators.bigquery_to_gcs import BigQueryToCloudStorageOperator
 from airflow.contrib.operators.dataflow_operator import DataFlowPythonOperator
 
-project_id =  # insert your project id (string) here
+project_id = os.environ['GOOGLE_CLOUD_PROJECT']
 
 default_dag_args = {
     # The start_date describes when a DAG is valid / can be run. Set this to a
     # fixed point in time rather than dynamically, since it is evaluated every
     # time a DAG is parsed. See:
     # https://airflow.apache.org/faq.html#what-s-the-deal-with-start-date
-    'start_date': yesterday,
+    'start_date': datetime.datetime.now(),
     'retries': 1,
     'retry_delay': datetime.timedelta(minutes=20),
     'dataflow_default_options': {

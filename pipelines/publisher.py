@@ -8,10 +8,11 @@ import json
 import numpy as np
 from datetime import datetime
 import pytz
+import os
 
 publisher = pubsub.PublisherClient()
 
-project_id =  # insert your GCP project id (string) here
+project_id = os.environ['GOOGLE_CLOUD_PROJECT']
 topic = 'projects/' + project_id + '/topics/stream_data_ingestion'
 
 locations = ['Helsinki', 'Vantaa', 'Espoo', 'Turku', 'Tampere', 'Jyvaskyla', 'Joensuu', 'Kuopio', 'Kajaani', 'Oulu', 'Rovaniemi']
