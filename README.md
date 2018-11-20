@@ -12,9 +12,9 @@ For this training you need:
 
 * (optional) [Google Cloud SDK](https://cloud.google.com/sdk/) installed on your laptop
 
-## Demo 1
+## Lab 1
 
-In this demo we explore the Google Analytics data from a GA demo account.
+In this lab we explore the Google Analytics data from a GA demo account.
 
 Products: _Google Analytics_, _Cloud Console_, _BigQuery_, _Cloud Shell_, _Cloud Datalab_, _Data Studio_
 
@@ -153,9 +153,9 @@ datalab list
 datalab stop my-datalab
 ```
 
-## Demo 2
+## Lab 2
 
-In this demo we
+In this lab we
 1. run a streaming pipeline from Pub/Sub to BigQuery,
 2. run a batch pipeline from BigQuery to Datastore and Storage,
 3. schedule the batch pipeline with Composer.
@@ -236,7 +236,8 @@ gcloud pubsub subscriptions create --topic stream_data_ingestion process_stream_
 
 11. Open a new Cloud Shell tab and pull messages from the subscription to make sure data is flowing
 ```
-gcloud pubsub subscriptions pull --auto-ack projects/$GOOGLE_CLOUD_PROJECT/subscriptions/process_stream_data
+gcloud pubsub subscriptions pull --auto-ack \
+projects/$GOOGLE_CLOUD_PROJECT/subscriptions/process_stream_data
 ```
 
 12. Interrupt the Python process `publisher.py` with `CTRL-C`
@@ -336,9 +337,9 @@ gsutil cp pipelines/batch_pipeline.py gs://$GOOGLE_CLOUD_PROJECT-dataflow/pipeli
 2. Check that no Dataflow pipelines are running
 
 
-## Demo 3
+## Lab 3
 
-In this demo we train a deep neural network TensorFlow model on
+In this lab we train a deep neural network TensorFlow model on
 Cloud ML Engine. The task is to classify successful marketing phone
 calls of a Portuguese banking institution.
 
