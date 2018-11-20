@@ -17,14 +17,13 @@ from __future__ import absolute_import
 
 import datetime
 import logging
-import os
 
 from airflow import models
 
 from airflow.contrib.operators.bigquery_to_gcs import BigQueryToCloudStorageOperator
 from airflow.contrib.operators.dataflow_operator import DataFlowPythonOperator
 
-project_id = os.environ['GOOGLE_CLOUD_PROJECT']
+project_id = models.Variable.get('gcp_project')
 
 default_dag_args = {
     # The start_date describes when a DAG is valid / can be run. Set this to a

@@ -319,11 +319,17 @@ gsutil cp pipelines/batch_pipeline.py gs://$GOOGLE_CLOUD_PROJECT-dataflow/pipeli
 
 8. Once the environment is ready, navigate to the Airflow web UI and explore it
 
-9. Submit your scheduling to Composer by copying `scheduler.py` into the `dags` folder of your Composer environment bucket
+9. Set the Airflow variable
+```
+gcloud composer environments run data-transfer-environment \
+    --location europe-west1 variables -- --set gcp_project $GOOGLE_CLOUD_PROJECT
+```
 
-10. Run the pipeline manually, if necessary, and inspect the runs in the web UI
+10. Submit your scheduling to Composer by copying `scheduler.py` into the `dags` folder of your Composer environment bucket
 
-11. View the pipeline by navigating to Dataflow in Cloud Console
+11. Run the pipeline manually, if necessary, and inspect the runs in the web UI
+
+12. View the pipeline by navigating to Dataflow in Cloud Console
 
 ### Exercise
 

@@ -34,7 +34,7 @@ def run(argv=None):
     known_args, pipeline_args = parser.parse_known_args(argv)
     # It is preferable to change the job name between runs.
     pipeline_args.extend([
-        'project=' + project_id,
+        '--project=' + project_id,
         '--job_name=datatransfer' + datetime.now().strftime('%Y%m%d%H%M%S%f'),
     ])
 
