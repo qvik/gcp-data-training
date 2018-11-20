@@ -353,7 +353,7 @@ Frameworks: _TensorFlow_
 gcloud services enable ml.googleapis.com
 ```
 
-### Preparing and testing the model
+### Preparing the model
 
 1. Visit the origin of the dataset at [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/bank+marketing)
 

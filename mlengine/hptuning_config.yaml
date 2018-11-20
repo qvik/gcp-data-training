@@ -7,17 +7,17 @@ trainingInput:
     params:
       - parameterName: first-layer-size
         type: INTEGER
-        minValue: 50
-        maxValue: 500
+        minValue: 4
+        maxValue: 16
         scaleType: UNIT_LINEAR_SCALE
       - parameterName: num-layers
         type: INTEGER
         minValue: 1
-        maxValue: 15
+        maxValue: 4
         scaleType: UNIT_LINEAR_SCALE
       - parameterName: scale-factor
         type: DOUBLE
-        minValue: 0.1
+        minValue: 0.7
         maxValue: 1.0
         scaleType: UNIT_REVERSE_LOG_SCALE
       # Add tuning for embedding size, see suggestion for solution below
@@ -33,7 +33,7 @@ trainingInput:
 
       # A solution:
       # - parameterName: embedding-size
-      # - type: INTEGER
-      # - minValue: 2
-      # - maxValue: 8
-      # - scaleType: UNIT_LINEAR_SCALE
+      #   type: INTEGER
+      #   minValue: 2
+      #   maxValue: 4
+      #   scaleType: UNIT_LINEAR_SCALE

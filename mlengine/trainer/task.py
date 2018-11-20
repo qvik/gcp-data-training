@@ -113,21 +113,21 @@ if __name__ == '__main__':
       '--train-batch-size',
       help='Batch size for training steps',
       type=int,
-      default=40)
+      default=100)
   parser.add_argument(
       '--eval-batch-size',
       help='Batch size for evaluation steps',
       type=int,
-      default=40)
+      default=100)
   parser.add_argument(
       '--embedding-size',
       help='Number of embedding dimensions for categorical columns',
-      default=8,
+      default=4,
       type=int)
   parser.add_argument(
       '--first-layer-size',
       help='Number of nodes in the first layer of the DNN',
-      default=100,
+      default=32,
       type=int)
   parser.add_argument(
       '--num-layers', help='Number of layers in the DNN', default=4, type=int)

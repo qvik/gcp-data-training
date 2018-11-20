@@ -28,7 +28,7 @@ CSV_COLUMN_DEFAULTS = [[0], [''], [''], [''], [''],
                        [0], [0], [0], [''], [0.0],
                        [0.0], [0.0], [0.0], [0.0], ['']]
 LABEL_COLUMN = 'subscribed'
-LABELS = ['yes', 'no']
+LABELS = ['no', 'yes']
 
 # Define the initial ingestion of each feature used by your model.
 # Additionally, provide metadata about the feature.
@@ -72,7 +72,7 @@ INPUT_COLUMNS = [
 UNUSED_COLUMNS = set(CSV_COLUMNS) - {col.name for col in INPUT_COLUMNS} - {LABEL_COLUMN}
 
 
-def build_estimator(config, embedding_size=8, hidden_units=None):
+def build_estimator(config, embedding_size=4, hidden_units=None):
   """Build a deep neural network model for predicting subscription.
 
   Args:
@@ -129,7 +129,7 @@ def build_estimator(config, embedding_size=8, hidden_units=None):
   return tf.estimator.DNNClassifier(
       config=config,
       feature_columns=feature_columns,
-      hidden_units=hidden_units or [100, 70, 50, 25])
+      hidden_units=hidden_units or [32, 24, 16, 8])
 
 
 def parse_label_column(label_string_tensor):
