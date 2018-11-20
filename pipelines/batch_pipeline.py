@@ -24,7 +24,7 @@ import argparse
 import logging
 import uuid
 
-project_id = os.environ['GOOGLE_CLOUD_PROJECT']
+project_id =  # insert here your project id (string)
 
 
 def run(argv=None):
