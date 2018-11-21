@@ -333,7 +333,7 @@ gcloud composer environments run data-transfer-environment \
 
 ### Exercise
 
-1. Draw an architecture diagram of the pipelines in Demo 2
+1. Draw an architecture diagram of the pipelines in Lab 2
 
 
 ### Clean up
@@ -536,4 +536,4 @@ gcloud ml-engine predict \
     data/test.json
 ```
 
-## The End
+## <center> The End </center>
