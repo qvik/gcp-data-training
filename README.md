@@ -506,12 +506,12 @@ gcloud ml-engine models create $MODEL_NAME --regions=$REGION
 
 3. Select the job output to use and look up the path to model binaries
 ```
-gsutil ls -r $OUTPUT_PATH/export
+gsutil ls -r $OUTPUT_PATH
 ```
 
 4. Set the environment variable with the correct value for `<timestamp>`
 ```
-MODEL_BINARIES=$OUTPUT_PATH/export/bank_marketing/<timestamp>/
+MODEL_BINARIES=$OUTPUT_PATH/.../export/bank_marketing/<timestamp>/
 ```
 
 5. Create a version of the model
@@ -524,16 +524,24 @@ gcloud ml-engine versions create v1 \
 
 6. From the `mlengine` folder, inspect the test instance
 ```
-cat data/test.json
+cat data/bank_data_test.json
 ```
 
-7. Get the prediction for the test instance
+7. Get the prediction for two test instances
 ```
 gcloud ml-engine predict \
     --model $MODEL_NAME \
     --version v1 \
     --json-instances \
-    data/test.json
+    data/bank_data_test_no.json
+```
+
+```
+gcloud ml-engine predict \
+    --model $MODEL_NAME \
+    --version v1 \
+    --json-instances \
+    data/bank_data_test_yes.json
 ```
 
 ## <center> The End </center>

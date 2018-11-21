@@ -23,9 +23,10 @@ CSV_COLUMNS = [
     'campaign', 'pdays', 'previous', 'poutcome', 'emp_var_rate',
     'cons_price_idx', 'cons_conf_idx', 'euribor3m', 'nr_employed', 'subscribed'
 ]
+# The numerical columns except for age are all normalized
 CSV_COLUMN_DEFAULTS = [[0], [''], [''], [''], [''],
                        [''], [''], [''], [''], [''],
-                       [0], [0], [0], [''], [0.0],
+                       [0.0], [0.0], [0.0], [''], [0.0],
                        [0.0], [0.0], [0.0], [0.0], ['']]
 LABEL_COLUMN = 'subscribed'
 LABELS = ['no', 'yes']

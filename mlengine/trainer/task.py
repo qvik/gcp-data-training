@@ -67,7 +67,7 @@ def train_and_evaluate(hparams):
       eval_input,
       steps=hparams.eval_steps,
       exporters=[exporter],
-      name='bank_marketing-eval')
+      name='bank_marketing')
 
   run_config = tf.estimator.RunConfig(
       session_config=_get_session_config_from_env_var())

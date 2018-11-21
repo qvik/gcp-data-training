@@ -3,7 +3,7 @@ trainingInput:
     goal: MAXIMIZE
     hyperparameterMetricTag: accuracy
     maxTrials: 4
-    maxParallelTrials: 2
+    maxParallelTrials: 1
     params:
       - parameterName: first-layer-size
         type: INTEGER
