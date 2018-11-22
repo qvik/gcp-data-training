@@ -130,6 +130,7 @@ def build_estimator(config, embedding_size=4, hidden_units=None):
   return tf.estimator.DNNClassifier(
       config=config,
       feature_columns=feature_columns,
+      optimizer='RMSProp',
       hidden_units=hidden_units or [32, 24, 16, 8])
 
 

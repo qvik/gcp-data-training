@@ -117,14 +117,14 @@ FROM `google_analytics_sample.ga_sessions_*`
 
 2. Visitors by country
 ```sql
-SELECT geoNetwork.country, COUNT(fullVisitorId) AS number_of_visitors
+SELECT geoNetwork.country, COUNT(DISTINCT fullVisitorId) AS number_of_visitors
 FROM `google_analytics_sample.ga_sessions_201707*`
 GROUP BY country ORDER BY number_of_visitors DESC
 ```
 
 3. Visitors by device category
 ```sql
-SELECT device.deviceCategory, COUNT(fullVisitorId) AS number_of_visitors
+SELECT device.deviceCategory, COUNT(DISTINCT fullVisitorId) AS number_of_visitors
 FROM `google_analytics_sample.ga_sessions_201707*`
 GROUP BY deviceCategory ORDER BY number_of_visitors DESC
 ```
@@ -168,7 +168,7 @@ Frameworks: _Apache Beam_, _Apache Airflow_
 
 1. In Cloud Console, navigate to APIs & Services
 
-2. Enable APIs for Pub/Sub and Cloud Dataflow
+2. Enable APIs for Pub/Sub, Cloud Dataflow, and Cloud Composer
 
 or, alternatively,
 
@@ -364,7 +364,7 @@ gcloud services enable ml.googleapis.com
 
 1. Visit the origin of the dataset at [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/bank+marketing)
 
-2. For your convenience, the data has been prepared into training and evaluation sets in `mlengine/data`
+2. For your convenience, the data has been prepared into training and evaluation sets in `mlengine/data/`. All the numerical variables except for `age` have been normalized.
 
 3. Open the model file `trainer/model.py` in your code editor and examine the objects `CSV_COLUMNS`, `INPUT_COLUMNS`, etc, which encode your data format
 
@@ -445,7 +445,7 @@ or, alternatively,
 
 7. Inspect the training process on TensorBoard (open web preview on port 6006)
 ```
-tensorboard --logdir=$MODEL_DIR
+tensorboard --logdir=$OUTPUT_PATH
 ```
 
 ### Hyperparameter tuning
@@ -489,7 +489,7 @@ or, alternatively,
 
 5. Inspect the training process on TensorBoard (open web preview on port 6006)
 ```
-tensorboard --logdir=$MODEL_DIR
+tensorboard --logdir=$OUTPUT_PATH/<trial_number>/
 ```
 
 ### Deployment
@@ -522,9 +522,10 @@ gcloud ml-engine versions create v1 \
     --runtime-version 1.8
 ```
 
-6. From the `mlengine` folder, inspect the test instance
+6. From the `mlengine` folder, inspect the test instances
 ```
-cat data/bank_data_test.json
+cat data/bank_data_test_no.json
+cat data/bank_data_test_yes.json
 ```
 
 7. Get the prediction for two test instances
