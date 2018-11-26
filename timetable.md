@@ -4,9 +4,9 @@ Date: Tuesday 27th November
 
 09:00 - 09:15 _Getting started and getting to know the audience_
 
-09:15 - 09:45 _GCP on a general level_
+09:15 - 09:30 _GCP on a general level_
 
-09:45 - 10:00 _Introducing BigQuery_
+09:30 - 10:00 _Introducing BigQuery_
 
 10:00 - 10:30 _Lab 1: Querying Google Analytics data in BigQuery_
 
