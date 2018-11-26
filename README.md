@@ -190,57 +190,57 @@ git clone https://github.com/qvik/gcp-data-training.git
 
 If you want to use your local code editor instead of the Cloud Shell code editor, follow these steps (you will need to have installed Google Cloud SDK locally):
 
-2. Create a repository in Cloud Source Repositories
+- Create a repository in Cloud Source Repositories
 ```
 gcloud source repos create gcp-data-training
 ```
 
-3. In the repository folder, add remote
+- In the repository folder, add remote
 ```
 git remote add google https://source.developers.google.com/p/$GOOGLE_CLOUD_PROJECT/r/gcp-data-training
 ```
 
-4. Push
+- Push
 ```
 git push google master
 ```
 
-5. Clone the `gcp-data-training` repository to your laptop by following the instructions in Source Repositories
+- Clone the `gcp-data-training` repository to your laptop by following the instructions in Source Repositories
 
 Back to Cloud Shell, everyone!
 
-6. Create a virtual environment for the publisher by
+2. Create a virtual environment for the publisher by
 ```
 virtualenv --python=/usr/bin/python pubvenv
 ```
 
-7. Activate it and install the Python client for Pub/Sub
+3. Activate it and install the Python client for Pub/Sub
 ```
 source pubvenv/bin/activate
 pip install --upgrade google-cloud-pubsub numpy
 ```
 
-8. Open `publisher.py` in your code editor and fill in the missing code
+4. Open `publisher.py` in your code editor and inspect the code
 
-9. In Cloud Console, navigate to Pub/Sub, create a topic `stream_data_ingestion` and for it a subscription `process_stream_data`
+5. In Cloud Console, navigate to Pub/Sub, create a topic `stream_data_ingestion` and for it a subscription `process_stream_data`
 
 or, alternatively,
 
-9. Create the topic and its subscription from command line
+5. Create the topic and its subscription from command line
 ```
 gcloud pubsub topics create stream_data_ingestion
 gcloud pubsub subscriptions create --topic stream_data_ingestion process_stream_data
 ```
 
-10. Run `publisher.py`
+6. Run `publisher.py`
 
-11. Open a new Cloud Shell tab and pull messages from the subscription to make sure data is flowing
+7. Open a new Cloud Shell tab and pull messages from the subscription to make sure data is flowing
 ```
 gcloud pubsub subscriptions pull --auto-ack \
 projects/$GOOGLE_CLOUD_PROJECT/subscriptions/process_stream_data
 ```
 
-12. Interrupt the Python process `publisher.py` with `CTRL-C`
+8. Interrupt the Python process `publisher.py` with `CTRL-C`
 
 ### Streaming pipeline
 
@@ -424,7 +424,7 @@ OUTPUT_PATH=gs://$BUCKET_NAME/$JOB_NAME
 ```
 gcloud ml-engine jobs submit training $JOB_NAME \
     --job-dir $OUTPUT_PATH \
-    --runtime-version 1.8 \
+    --runtime-version 1.10 \
     --module-name trainer.task \
     --package-path trainer/ \
     --region $REGION \
