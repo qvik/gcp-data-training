@@ -1,14 +1,15 @@
 trainingInput:
   hyperparameters:
     goal: MAXIMIZE
-    hyperparameterMetricTag: accuracy
+    # Choose the metric to aim to maximize (accuracy, auc, auc_precision_recall)
+    hyperparameterMetricTag:
     maxTrials: 4
     maxParallelTrials: 1
     params:
       - parameterName: first-layer-size
         type: INTEGER
-        minValue: 4
-        maxValue: 16
+        minValue: 16
+        maxValue: 32
         scaleType: UNIT_LINEAR_SCALE
       - parameterName: num-layers
         type: INTEGER
@@ -17,9 +18,9 @@ trainingInput:
         scaleType: UNIT_LINEAR_SCALE
       - parameterName: scale-factor
         type: DOUBLE
-        minValue: 0.7
-        maxValue: 1.0
-        scaleType: UNIT_REVERSE_LOG_SCALE
+        minValue: 0.6
+        maxValue: 0.8
+        scaleType: UNIT_LINEAR_SCALE
       # Add tuning for embedding size, see suggestion for solution below
 
 

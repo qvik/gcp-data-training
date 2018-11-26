@@ -464,9 +464,8 @@ OUTPUT_PATH=gs://$BUCKET_NAME/$JOB_NAME
 4. Run training with hyperparameter tuning
 ```
 gcloud ml-engine jobs submit training $JOB_NAME \
-    --stream-logs \
     --job-dir $OUTPUT_PATH \
-    --runtime-version 1.8 \
+    --runtime-version 1.10 \
     --config $HPTUNING_CONFIG \
     --module-name trainer.task \
     --package-path trainer/ \
@@ -509,9 +508,9 @@ gcloud ml-engine models create $MODEL_NAME --regions=$REGION
 gsutil ls -r $OUTPUT_PATH
 ```
 
-4. Set the environment variable with the correct value for `<timestamp>`
+4. Set the environment variable with the correct value for `<trial_number>` and `<timestamp>`
 ```
-MODEL_BINARIES=$OUTPUT_PATH/.../export/bank_marketing/<timestamp>/
+MODEL_BINARIES=$OUTPUT_PATH/<trial_number>/export/bank_marketing/<timestamp>/
 ```
 
 5. Create a version of the model
@@ -519,7 +518,7 @@ MODEL_BINARIES=$OUTPUT_PATH/.../export/bank_marketing/<timestamp>/
 gcloud ml-engine versions create v1 \
     --model $MODEL_NAME \
     --origin $MODEL_BINARIES \
-    --runtime-version 1.8
+    --runtime-version 1.10
 ```
 
 6. From the `mlengine` folder, inspect the test instances

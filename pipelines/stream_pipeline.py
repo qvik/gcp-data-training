@@ -11,8 +11,7 @@ from __future__ import print_function
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions, SetupOptions
 from apache_beam.io import WriteToBigQuery, ReadFromPubSub
-from apache_beam.transforms import WindowInto
-from apache_beam.transforms.window import FixedWindows
+
 import os
 import argparse
 import logging
@@ -60,7 +59,7 @@ def run(argv=None):
 
     with beam.Pipeline(options=pipeline_options) as p:
         (p | 'stream_data_ingestion' >> ReadFromPubSub(subscription=subscription)
-           | '')
+           | '...')
 
 
 class PrintElement(beam.DoFn):
