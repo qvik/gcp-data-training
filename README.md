@@ -14,30 +14,28 @@ For this training you need:
 
 ## Lab 1
 
-In this lab we explore the Google Analytics data from a GA demo account.
+In this lab we explore the Google Analytics data from a demo account.
 
 Products: _Google Analytics_, _Cloud Console_, _BigQuery_, _Cloud Shell_, _Cloud Datalab_, _Data Studio_
 
 
-1. The GA demo account tracks data from [Google Merchandise Store](https://www.googlemerchandisestore.com/)
+1. The demo account tracks data from [Google Merchandise Store](https://www.googlemerchandisestore.com/)
 
-2. View the [Google Analytics dashboard](https://analytics.google.com/analytics/web/)
+2. Access the Google Analytics dashboard through [this page](https://support.google.com/analytics/answer/6367342#access)
 
-3. Learn more from video tutorials at [Analytics Academy](https://analytics.google.com/analytics/academy/)
-
-4. Open your [Google Cloud Console](https://console.cloud.google.com)
+3. Open your [Google Cloud Console](https://console.cloud.google.com)
 and navigate to BigQuery
 
-5. Explore the UI, find your `google_analytics_sample` dataset and the `ga_sessions_*` tables within
+4. Explore the UI, find your `google_analytics_sample` dataset and the `ga_sessions_*` tables within
 
-6. See the documentation:
+5. See the documentation & tutorials:
 
   - [BigQuery Export for Analytics](https://support.google.com/analytics/answer/3437618) (optional)
   - [BigQuery Export schema](https://support.google.com/analytics/answer/3437719)
   - [Standard SQL Reference](https://cloud.google.com/bigquery/docs/reference/standard-sql/)
+  - [Analytics Academy](https://analytics.google.com/analytics/academy/)
 
-
-7. Try out a simple query like
+6. Try out a simple query like
 ```sql
 SELECT fullVisitorId, date, device.deviceCategory, geoNetwork.country
 FROM `google_analytics_sample.ga_sessions_201707*`
