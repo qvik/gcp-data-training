@@ -155,8 +155,8 @@ datalab stop my-datalab
 
 In this lab we
 1. run a streaming pipeline from Pub/Sub to BigQuery,
-2. run a batch pipeline from BigQuery to Datastore and Storage,
-3. schedule the batch pipeline with Composer.
+2. run a batch pipeline from BigQuery to Datastore,
+3. schedule the batch pipeline and other tasks with Composer.
 
 Products: _Cloud Shell_, _Cloud Source Repositories_, _Pub/Sub_, _Cloud Dataflow_, _BigQuery_, _Cloud Datastore_, _Cloud Storage_, _Cloud Composer_
 
